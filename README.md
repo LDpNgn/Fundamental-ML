@@ -197,7 +197,7 @@ weighted avg       0.42      0.42      0.38      3410
 ```
 
 - **On transformed dataset**  
-![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
+![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)  
 Best parameters found: {'classifier__criterion': 'gini', 'classifier__max_depth': None, 'classifier__n_estimators': 200}  
 Best cross-validation score: 0.3674618693781776
 ```
@@ -234,5 +234,107 @@ Test Classification Report:
    macro avg       0.44      0.27      0.26      3410
 weighted avg       0.40      0.36      0.31      3410
 ```
+
+
+#### Model 2: KNN  
+**On Original dataset**  
+![img_grid_knn_norm](./materials/img_grid_knn_norm.png)  
+Best parameters found: {'classifier__metric': 'euclidean', 'classifier__n_neighbors': 4, 'classifier__weights': 'uniform'}  
+Best cross-validation score: 0.16112631990614  
+```
+Validation Accuracy: 0.18087602659366445
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       706
+           1       0.00      0.00      0.00        56
+           2       0.00      0.00      0.00       721
+           3       0.00      0.00      0.00      1302
+           4       0.00      0.00      0.00       910
+           5       0.00      0.00      0.00       494
+           6       0.18      1.00      0.31       925
+
+    accuracy                           0.18      5114
+   macro avg       0.03      0.14      0.04      5114
+weighted avg       0.03      0.18      0.06      5114
+```
+```
+Test Accuracy: 0.17214076246334312
+Test Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       485
+           1       0.00      0.00      0.00        57
+           2       0.00      0.00      0.00       482
+           3       0.00      0.00      0.00       854
+           4       0.00      0.00      0.00       594
+           5       0.00      0.00      0.00       351
+           6       0.17      1.00      0.29       587
+
+    accuracy                           0.17      3410
+   macro avg       0.02      0.14      0.04      3410
+weighted avg       0.03      0.17      0.05      3410
+```
+
+- **On transformed dataset**  
+![img_grid_knn_pca](./materials/img_grid_knn_pca.png)  
+Best parameters found: {'classifier__n_neighbors': 4}  
+Best cross-validation score: 0.16112631990614
+```
+Validation Accuracy: 0.18087602659366445
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       706
+           1       0.00      0.00      0.00        56
+           2       0.00      0.00      0.00       721
+           3       0.00      0.00      0.00      1302
+           4       0.00      0.00      0.00       910
+           5       0.00      0.00      0.00       494
+           6       0.18      1.00      0.31       925
+
+    accuracy                           0.18      5114
+   macro avg       0.03      0.14      0.04      5114
+weighted avg       0.03      0.18      0.06      5114
+```
+```
+Test Accuracy: 0.17214076246334312
+Test Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       485
+           1       0.00      0.00      0.00        57
+           2       0.00      0.00      0.00       482
+           3       0.00      0.00      0.00       854
+           4       0.00      0.00      0.00       594
+           5       0.00      0.00      0.00       351
+           6       0.17      1.00      0.29       587
+
+    accuracy                           0.17      3410
+   macro avg       0.02      0.14      0.04      3410
+weighted avg       0.03      0.17      0.05      3410
+```
+
+
+
+#### Model 3: SVC
+**On Original dataset**  
+![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
+
+- **On transformed dataset**  
+![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
+
+
+
+
+#### Model 4: MLP
+**On Original dataset**  
+![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
+
+- **On transformed dataset**  
+![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
+
+
+
 
 ### 4. Evaluating Classification Performance 
