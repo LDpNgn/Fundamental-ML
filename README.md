@@ -505,4 +505,28 @@ weighted avg       0.32      0.30      0.30      3410
 | Multi-layer Perceptron Classifier | original          | {'classifier\_\_alpha': 0\.01, 'classifier\_\_hidden\_layer\_sizes': (10,)}                                | 0\.3515                         | 0\.3015                 | 0\.3187           |
 | Multi-layer Perceptron Classifier | transformed       | {'classifier\_\_alpha': 0\.1, 'classifier\_\_hidden\_layer\_sizes': (10,)}                                 | 0\.3402                         | 0\.291                  | 0\.3035           |
 
+Based on the evaluation data, the Random Forest Classifier model performs best  
 
+##### Show images with original labels and predictive labels on validation dataset
+- Original dataset
+![img_org](./materials/img_org.png)  
+- Predict base on original dataset
+![img_pred_org](./materials/img_pred_org.png)  
+- Predict base on transformed dataset
+![img_pred_pca](./materials/img_pred_pca.png)
+
+#### Labels 1: Original VS Predictive
+- Original dataset
+![img_org](./materials/img_org1.png)  
+- Predict base on original dataset
+![img_pred_org](./materials/img_pred_org1.png)  
+- Predict base on transformed dataset
+![img_pred_pca](./materials/img_pred_pca1.png)
+
+#### Labels 3: Original VS Predictive
+- Original dataset
+![img_org](./materials/img_org3.png)  
+- Predict base on original dataset
+![img_pred_org](./materials/img_pred_org3.png)  
+- Predict base on transformed dataset
+![img_pred_pca](./materials/img_pred_pca3.png)
