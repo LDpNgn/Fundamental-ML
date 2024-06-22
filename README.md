@@ -494,12 +494,23 @@ weighted avg       0.32      0.30      0.30      3410
 
 ### 4. Evaluating Classification Performance 
 #### Metrics evaluation result of transformed data  
+- **On the original dataset**
+  
 | **Models**                        | **Accuracy** | **Precision** | **Recall** | **F1-score** |
 | :-------------------------------- | -----------: | :------------ | :--------- | :----------- |
-| Random Forest Classifier          | 0\.351613    | 0\.351613     | 0\.351613  | 0\.351613    |
-| K-nearest Neighbors Classifier    | 0\.25044     | 0\.25044      | 0\.25044   | 0\.25044     |
-| Support Vector Classifier         | 0\.25044     | 0\.25044      | 0\.25044   | 0\.25044     |
-| Multi-layer Perceptron Classifier | 0\.310264    | 0\.310264     | 0\.310264  | 0\.310264    |  
+| Random Forest Classifier          | 0\.416422    | 0\.327991     | 0\.416422  | 0\.325281    |
+| K-nearest Neighbors Classifier    | 0\.25044     | 0\.142857     | 0\.25044   | 0\.057223    |
+| Support Vector Classifier         | 0\.25044     | 0\.142857     | 0\.25044   | 0\.057223    |
+| Multi-layer Perceptron Classifier | 0\.318768    | 0\.292653     | 0\.318768  | 0\.275711    |
+
+- **On the transformed dataset**
+
+| **Models**                        | **Accuracy** | **Precision** | **Recall** | **F1-score** |
+| :-------------------------------- | -----------: | :------------ | :--------- | :----------- |
+| Random Forest Classifier          | 0\.351613    | 0\.256616     | 0\.351613  | 0\.247577    |
+| K-nearest Neighbors Classifier    | 0\.25044     | 0\.142857     | 0\.25044   | 0\.057223    |
+| Support Vector Classifier         | 0\.25044     | 0\.142857     | 0\.25044   | 0\.057223    |
+| Multi-layer Perceptron Classifier | 0\.310264    | 0\.300077     | 0\.310264  | 0\.275108    |  
 
 Because the goal of this problem is to maximize the overall correct predictions, so we decided to choose accuracy score as the main metric to evaluate the performance of the four models. As accuracy reflects the overall ability of the model to correctly classify emotions in the images. It provides a general idea of the model's performance. So, let's take a look closer at the accuracy score:  
 
