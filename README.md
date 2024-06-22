@@ -334,10 +334,81 @@ weighted avg       0.06      0.25      0.10      3410
 
 #### Model 3: SVC
 **On Original dataset**  
-\![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
+\![img_grid_svc_norm](./materials/img_grid_svc_norm.png)  
+Best parameters found: {'classifier__C': 100, 'classifier__gamma': 'scale', 'classifier__kernel': 'sigmoid'}  
+Best cross-validation score: 0.2598357450136879  
+```
+Validation Accuracy: 0.2545952287837309
+Validation Classification Report:
+              precision    recall  f1-score   support
 
+           0       0.00      0.00      0.00       706
+           1       0.00      0.00      0.00        56
+           2       0.00      0.00      0.00       721
+           3       0.25      1.00      0.41      1302
+           4       0.00      0.00      0.00       910
+           5       0.00      0.00      0.00       494
+           6       0.00      0.00      0.00       925
+
+    accuracy                           0.25      5114
+   macro avg       0.04      0.14      0.06      5114
+weighted avg       0.06      0.25      0.10      5114
+```
+```
+Test Accuracy: 0.2504398826979472
+Test Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       485
+           1       0.00      0.00      0.00        57
+           2       0.00      0.00      0.00       482
+           3       0.25      1.00      0.40       854
+           4       0.00      0.00      0.00       594
+           5       0.00      0.00      0.00       351
+           6       0.00      0.00      0.00       587
+
+    accuracy                           0.25      3410
+   macro avg       0.04      0.14      0.06      3410
+weighted avg       0.06      0.25      0.10      3410
+```
 - **On transformed dataset**  
-\![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
+\![img_grid_svc_pca](./materials/img_grid_svc_pca.png)
+Best parameters found: {'classifier__C': 100, 'classifier__gamma': 'scale', 'classifier__kernel': 'sigmoid'}  
+Best cross-validation score: 0.2598357450136879
+```
+Validation Accuracy: 0.2545952287837309
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       706
+           1       0.00      0.00      0.00        56
+           2       0.00      0.00      0.00       721
+           3       0.25      1.00      0.41      1302
+           4       0.00      0.00      0.00       910
+           5       0.00      0.00      0.00       494
+           6       0.00      0.00      0.00       925
+
+    accuracy                           0.25      5114
+   macro avg       0.04      0.14      0.06      5114
+weighted avg       0.06      0.25      0.10      5114
+```
+```
+Test Accuracy: 0.2504398826979472
+Test Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       485
+           1       0.00      0.00      0.00        57
+           2       0.00      0.00      0.00       482
+           3       0.25      1.00      0.40       854
+           4       0.00      0.00      0.00       594
+           5       0.00      0.00      0.00       351
+           6       0.00      0.00      0.00       587
+
+    accuracy                           0.25      3410
+   macro avg       0.04      0.14      0.06      3410
+weighted avg       0.06      0.25      0.10      3410
+```
 
 
 
@@ -421,6 +492,17 @@ Test Classification Report:
 weighted avg       0.32      0.30      0.30      3410
 ```
 
+### 4. Evaluating Classification Performance 
 
+| **Models**                        | **Training data** | **Best Parameters Found**                                                                                  | **Best Cross Validation Score** | **Validation Accuracy** | **Test Accuracy** |
+| :-------------------------------- | :---------------: | :--------------------------------------------------------------------------------------------------------- | ------------------------------: | ----------------------: | ----------------: |
+| Random Forest Classifier          | original          | {'classifier\_\_max\_depth': None, 'classifier\_\_n\_estimators': 200}                                     | 0\.4206                         | 0\.4192                 | 0\.4164           |
+| Random Forest Classifier          | transformed       | {'classifier\_\_criterion': 'gini', 'classifier\_\_max\_depth': None, 'classifier\_\_n\_estimators': 200}  | 0\.3674                         | 0\.3597                 | 0\.3595           |
+| Support Vector Classifier         | original          | {'classifier\_\_C': 100, 'classifier\_\_gamma': 'scale', 'classifier\_\_kernel': 'sigmoid'}                | 0\.2598                         | 0\.2546                 | 0\.2504           |
+| Support Vector Classifier         | transformed       | {'classifier\_\_C': 100, 'classifier\_\_gamma': 'scale', 'classifier\_\_kernel': 'sigmoid'}                | 0\.2598                         | 0\.2546                 | 0\.2504           |
+| K-nearest Neighbors Classifier    | original          | {'classifier\_\_metric': 'euclidean', 'classifier\_\_n\_neighbors': 4, 'classifier\_\_weights': 'uniform'} | 0\.2598                         | 0\.2546                 | 0\.2504           |
+| K-nearest Neighbors Classifier    | transformed       | {'classifier\_\_metric': 'euclidean', 'classifier\_\_n\_neighbors': 4, 'classifier\_\_weights': 'uniform'} | 0\.2598                         | 0\.2545                 | 0\.2504           |
+| Multi-layer Perceptron Classifier | original          | {'classifier\_\_alpha': 0\.01, 'classifier\_\_hidden\_layer\_sizes': (10,)}                                | 0\.3515                         | 0\.3015                 | 0\.3187           |
+| Multi-layer Perceptron Classifier | transformed       | {'classifier\_\_alpha': 0\.1, 'classifier\_\_hidden\_layer\_sizes': (10,)}                                 | 0\.3402                         | 0\.291                  | 0\.3035           |
 
 
