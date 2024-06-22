@@ -334,22 +334,20 @@ weighted avg       0.03      0.17      0.05      3410
 
 #### Model 3: SVC
 **On Original dataset**  
-![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
+\![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
 
 - **On transformed dataset**  
-![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
+\![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
 
 
 
 
 #### Model 4: MLP
 **On Original dataset**  
-![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
+\![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
 
 - **On transformed dataset**  
-![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
+\![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
 
 
 
-
-### 4. Evaluating Classification Performance 
