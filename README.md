@@ -334,7 +334,7 @@ weighted avg       0.06      0.25      0.10      3410
 
 #### Model 3: SVC
 **On Original dataset**  
-\![img_grid_svc_norm](./materials/img_grid_svc_norm.png)  
+![img_grid_svc_norm](./materials/img_grid_svc_norm.png)  
 Best parameters found: {'classifier__C': 100, 'classifier__gamma': 'scale', 'classifier__kernel': 'sigmoid'}  
 Best cross-validation score: 0.2598357450136879  
 ```
@@ -372,7 +372,7 @@ Test Classification Report:
 weighted avg       0.06      0.25      0.10      3410
 ```
 - **On transformed dataset**  
-\![img_grid_svc_pca](./materials/img_grid_svc_pca.png)
+![img_grid_svc_pca](./materials/img_grid_svc_pca.png)  
 Best parameters found: {'classifier__C': 100, 'classifier__gamma': 'scale', 'classifier__kernel': 'sigmoid'}  
 Best cross-validation score: 0.2598357450136879
 ```
