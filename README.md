@@ -255,79 +255,79 @@ weighted avg       0.40      0.36      0.31      3410
 **On Original dataset**  
 ![img_grid_knn_norm](./materials/img_grid_knn_norm.png)  
 Best parameters found: {'classifier__metric': 'euclidean', 'classifier__n_neighbors': 4, 'classifier__weights': 'uniform'}  
-Best cross-validation score: 0.16112631990614  
+Best cross-validation score: 0.2598357450136879
 ```
-Validation Accuracy: 0.18087602659366445
+Validation Accuracy: 0.2545952287837309
 Validation Classification Report:
               precision    recall  f1-score   support
 
            0       0.00      0.00      0.00       706
            1       0.00      0.00      0.00        56
            2       0.00      0.00      0.00       721
-           3       0.00      0.00      0.00      1302
+           3       0.25      1.00      0.41      1302
            4       0.00      0.00      0.00       910
            5       0.00      0.00      0.00       494
-           6       0.18      1.00      0.31       925
+           6       0.00      0.00      0.00       925
 
-    accuracy                           0.18      5114
-   macro avg       0.03      0.14      0.04      5114
-weighted avg       0.03      0.18      0.06      5114
+    accuracy                           0.25      5114
+   macro avg       0.04      0.14      0.06      5114
+weighted avg       0.06      0.25      0.10      5114
 ```
 ```
-Test Accuracy: 0.17214076246334312
+Test Accuracy: 0.2504398826979472
 Test Classification Report:
               precision    recall  f1-score   support
 
            0       0.00      0.00      0.00       485
            1       0.00      0.00      0.00        57
            2       0.00      0.00      0.00       482
-           3       0.00      0.00      0.00       854
+           3       0.25      1.00      0.40       854
            4       0.00      0.00      0.00       594
            5       0.00      0.00      0.00       351
-           6       0.17      1.00      0.29       587
+           6       0.00      0.00      0.00       587
 
-    accuracy                           0.17      3410
-   macro avg       0.02      0.14      0.04      3410
-weighted avg       0.03      0.17      0.05      3410
+    accuracy                           0.25      3410
+   macro avg       0.04      0.14      0.06      3410
+weighted avg       0.06      0.25      0.10      3410
 ```
 
 - **On transformed dataset**  
 ![img_grid_knn_pca](./materials/img_grid_knn_pca.png)  
 Best parameters found: {'classifier__n_neighbors': 4}  
-Best cross-validation score: 0.16112631990614
+Best cross-validation score: 0.2598357450136879
 ```
-Validation Accuracy: 0.18087602659366445
+Validation Accuracy: 0.2545952287837309
 Validation Classification Report:
               precision    recall  f1-score   support
 
            0       0.00      0.00      0.00       706
            1       0.00      0.00      0.00        56
            2       0.00      0.00      0.00       721
-           3       0.00      0.00      0.00      1302
+           3       0.25      1.00      0.41      1302
            4       0.00      0.00      0.00       910
            5       0.00      0.00      0.00       494
-           6       0.18      1.00      0.31       925
+           6       0.00      0.00      0.00       925
 
-    accuracy                           0.18      5114
-   macro avg       0.03      0.14      0.04      5114
-weighted avg       0.03      0.18      0.06      5114
+    accuracy                           0.25      5114
+   macro avg       0.04      0.14      0.06      5114
+weighted avg       0.06      0.25      0.10      5114
 ```
 ```
-Test Accuracy: 0.17214076246334312
+Test Accuracy: 0.2504398826979472
 Test Classification Report:
               precision    recall  f1-score   support
 
            0       0.00      0.00      0.00       485
            1       0.00      0.00      0.00        57
            2       0.00      0.00      0.00       482
-           3       0.00      0.00      0.00       854
+           3       0.25      1.00      0.40       854
            4       0.00      0.00      0.00       594
            5       0.00      0.00      0.00       351
-           6       0.17      1.00      0.29       587
+           6       0.00      0.00      0.00       587
 
-    accuracy                           0.17      3410
-   macro avg       0.02      0.14      0.04      3410
-weighted avg       0.03      0.17      0.05      3410
+    accuracy                           0.25      3410
+   macro avg       0.04      0.14      0.06      3410
+weighted avg       0.06      0.25      0.10      3410
 ```
 
 
@@ -344,10 +344,83 @@ weighted avg       0.03      0.17      0.05      3410
 
 #### Model 4: MLP
 **On Original dataset**  
-\![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
+![img_grid_mlpc_norm](./materials/img_grid_mlpc_norm.png)  
+Best parameters found: {'classifier__alpha': 0.01, 'classifier__hidden_layer_sizes': (10,)}  
+Best cross-validation score: 0.35152759328583505  
+```
+Validation Accuracy: 0.3015252248728979
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.20      0.21      0.20       706
+           1       0.03      0.11      0.04        56
+           2       0.19      0.16      0.17       721
+           3       0.49      0.43      0.46      1302
+           4       0.29      0.20      0.24       910
+           5       0.29      0.49      0.37       494
+           6       0.30      0.32      0.31       925
+
+    accuracy                           0.30      5114
+   macro avg       0.26      0.27      0.26      5114
+weighted avg       0.31      0.30      0.30      5114
+```
+```
+Test Accuracy: 0.3187683284457478
+Test Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.21      0.21      0.21       485
+           1       0.06      0.18      0.09        57
+           2       0.19      0.16      0.17       482
+           3       0.50      0.46      0.48       854
+           4       0.31      0.22      0.26       594
+           5       0.32      0.46      0.38       351
+           6       0.32      0.37      0.35       587
+
+    accuracy                           0.32      3410
+   macro avg       0.27      0.29      0.28      3410
+weighted avg       0.33      0.32      0.32      3410
+```
 
 - **On transformed dataset**  
-\![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
+![img_grid_mlpc_pca](./materials/img_grid_mlpc_pca.png)
+Best parameters found: {'classifier__alpha': 0.1, 'classifier__hidden_layer_sizes': (10,)}  
+Best cross-validation score: 0.3402568127842853
+```
+Validation Accuracy: 0.29096597575283534
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.22      0.26      0.24       706
+           1       0.05      0.21      0.08        56
+           2       0.18      0.16      0.17       721
+           3       0.47      0.41      0.44      1302
+           4       0.28      0.18      0.22       910
+           5       0.27      0.49      0.35       494
+           6       0.30      0.26      0.27       925
+
+    accuracy                           0.29      5114
+   macro avg       0.25      0.28      0.25      5114
+weighted avg       0.31      0.29      0.29      5114
+```
+```
+Test Accuracy: 0.3035190615835777
+Test Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.24      0.28      0.26       485
+           1       0.07      0.23      0.11        57
+           2       0.19      0.16      0.17       482
+           3       0.51      0.42      0.46       854
+           4       0.26      0.17      0.21       594
+           5       0.28      0.47      0.35       351
+           6       0.32      0.31      0.31       587
+
+    accuracy                           0.30      3410
+   macro avg       0.27      0.29      0.27      3410
+weighted avg       0.32      0.30      0.30      3410
+```
+
 
 
 
