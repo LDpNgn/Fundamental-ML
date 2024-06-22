@@ -493,6 +493,15 @@ weighted avg       0.32      0.30      0.30      3410
 ```
 
 ### 4. Evaluating Classification Performance 
+#### Metrics evaluation result of transformed data  
+| **Models**                        | **Accuracy** | **Precision** | **Recall** | **F1-score** |
+| :-------------------------------- | -----------: | :------------ | :--------- | :----------- |
+| Random Forest Classifier          | 0\.351613    | 0\.351613     | 0\.351613  | 0\.351613    |
+| K-nearest Neighbors Classifier    | 0\.25044     | 0\.25044      | 0\.25044   | 0\.25044     |
+| Support Vector Classifier         | 0\.25044     | 0\.25044      | 0\.25044   | 0\.25044     |
+| Multi-layer Perceptron Classifier | 0\.310264    | 0\.310264     | 0\.310264  | 0\.310264    |  
+
+Because the goal of this problem is to maximize the overall correct predictions, so we decided to choose accuracy score as the main metric to evaluate the performance of the four models. As accuracy reflects the overall ability of the model to correctly classify emotions in the images. It provides a general idea of the model's performance. So, let's take a look closer at the accuracy score:  
 
 | **Models**                        | **Training data** | **Best Parameters Found**                                                                                  | **Best Cross Validation Score** | **Validation Accuracy** | **Test Accuracy** |
 | :-------------------------------- | :---------------: | :--------------------------------------------------------------------------------------------------------- | ------------------------------: | ----------------------: | ----------------: |
@@ -505,7 +514,22 @@ weighted avg       0.32      0.30      0.30      3410
 | Multi-layer Perceptron Classifier | original          | {'classifier\_\_alpha': 0\.01, 'classifier\_\_hidden\_layer\_sizes': (10,)}                                | 0\.3515                         | 0\.3015                 | 0\.3187           |
 | Multi-layer Perceptron Classifier | transformed       | {'classifier\_\_alpha': 0\.1, 'classifier\_\_hidden\_layer\_sizes': (10,)}                                 | 0\.3402                         | 0\.291                  | 0\.3035           |
 
-Based on the evaluation data, the Random Forest Classifier model performs best  
+Looking at the "test accuracy" column, the Random Forest Classifier, both in its original and transformed states, achieved the highest accuracy (0.4164) compared to all the other models. This indicates it can generalize better to unseen data.  
+
+However, we see that the emotion category with the highest frequency is 19 times higher than the emotion category with the lowest frequency.  
+
+- The emotion category with the highest frequency is 3 - Happy, with 8,800 occurrences.  
+- The emotion category with the second-highest frequency is 6 - Neutral, with 6,057 occurrences.  
+- The emotion category with the third-highest frequency is 4 - Sad, with 5,934 occurrences.  
+- The emotion category with the lowest frequency is 1 - Disgust, with only 461 occurrences.  
+
+Furthermore, there is a very large difference between the number of labels 1 and the other labels from 10-20 times, then this can be considered a case of class imbalance in dataset.  
+
+This can have a significant negative impact on the performance of classification models such as biased predictions, reduced accuracy, overfitting.  
+
+We will use Random Forest to identify the emotion category where the model makes the most accurate and most errors, as it is selected to be the best model.   
+
+As we can see from the classification report above, the most accurate is label 3 (the majority class) and the most errors is label 1 (the minority class). This can be predicted because when there is a large disparity in the number of instances per class, the model may tend to perform better on the majority class while struggling with the minority classes.
 
 ##### Show images with original labels and predictive labels on validation dataset
 - Original dataset
