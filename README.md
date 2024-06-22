@@ -529,7 +529,6 @@ This can have a significant negative impact on the performance of classification
 
 We will use Random Forest to identify the emotion category where the model makes the most accurate and most errors, as it is selected to be the best model.   
 
-As we can see from the classification report above, the most accurate is label 3 (the majority class) and the most errors is label 1 (the minority class). This can be predicted because when there is a large disparity in the number of instances per class, the model may tend to perform better on the majority class while struggling with the minority classes.
 
 ##### Show images with original labels and predictive labels on validation dataset
 - Original dataset
@@ -554,3 +553,6 @@ As we can see from the classification report above, the most accurate is label 3
 ![img_pred_org](./materials/img_pred_org3.png)  
 - Predict base on transformed dataset
 ![img_pred_pca](./materials/img_pred_pca3.png)
+
+
+As we can see from the classification report or on the visualizations above, the most accurate is label 3 (the majority class) and the most errors is label 1 (the minority class). This can be predicted because when there is a large disparity in the number of instances per class, the model may tend to perform better on the majority class while struggling with the minority classes.
