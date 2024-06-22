@@ -75,7 +75,29 @@ One of the most common applications of unsupervised data transformation is dimen
 Principal Component Analysis (PCA) is a popular technique for dimensionality reduction. It transforms the data into a new set of features called principal components (PCs). These PCs are ordered by their importance, capturing the most significant variations in the data. By selecting a subset of the most informative PCs, we can achieve a significant reduction in data size while preserving the essential information for analysis.  
 
 #### Question 1: Can you visualize the data projected onto two principal components?  
+Perform PCA on the 2-dimensional matrix image_raws with 35887 rows corresponding to 35887 data images, 2304 columns corresponding to 48x48 pixel values  
+![img_pca](./materials/img_pca.png)   
+Sau khi giảm số chiều của tập dữ liệu bằng PCA với n_components = 2, ta giữ lại được khoảng 27.66% thông tin (về phương sai) từ tập dữ liệu gốc. Đây có thể được xem là thấp, điều đó gợi ý rằng ta cần một số lượng lớn hơn các thành phần chính để nắm bắt nhiều phương sai hơn hoặc tập dữ liệu có tính đa chiều cao   
+
 #### Question 2: How to determine the optimal number of principal components using ```pca.explained_variance_```? Explain your selection process.  
+Determining the optimal number of principal components (PCs) in Principal Component Analysis (PCA) is an important step for effective data dimensionality reduction. Choosing the appropriate number of PCs helps balance between retaining the most important information from the original data and minimizing noise and redundancy.  
+
+A common method for determining the optimal number of PCs is to use a combination of visual and quantitative analysis based on the explained_variance_ variable of PCA. Here are the steps:  
+- Step 1: Fit PCA model  
+- Step 2: Explained variance ratio  
+- Step 3: Create a scree plot to visualize the explained variance  
+![img_screeplot](./materials/img_screeplot.png)
+- Step 4: Determine the "Elbow" Point  
+Dựa vào biểu đồ Scree Plot, điểm khuỷu tay có thể nằm ở khoảng 150-175 PCs, tương ứng với 90% thông tin về phương sai của dữ liệu gốc. Do đó, lựa chọn 158 PCs có thể là số lượng thành phần chính tối ưu cho trường hợp này.  
+- Step 5: Threshold Method  
+![img_threshold](./materials/img_threshold.png)  
+Another way to find the number of principal components is to use the threshold method. Setting the cumulative variance threshold at 90%, we find the optimal number of principal components to be 158
+
+Scree Plot and "Elbow" Method: The scree plot shows the explained variance of each principal component. The "elbow" point, where the explained variance curve starts to flatten, indicates diminishing returns for adding more components. This point is chosen as the optimal number of components because it captures most of the variance while avoiding unnecessary complexity.  
+
+Cumulative Variance Threshold: This method sets a threshold for the cumulative explained variance (e.g., 80% or 90%). The optimal number of components is the smallest number that meets or exceeds this threshold, ensuring that a sufficient amount of variance is captured.   
+
+By using both the scree plot and the cumulative variance threshold, can make a well-informed decision on the optimal number of principal components for your analysis.  
 
 
 
@@ -86,12 +108,59 @@ The classification task will compare the performance using both:
 - Transformed data: The data projected onto the optimal number of principal components identified earlier. Utilize the **optimal number of principal components** identified in the previous question.
 
 **Import these prerequisites before proceeding**  
+```python
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.decomposition import PCA
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import accuracy_score, classification_report
+```
 
-**PCA with 158 principal components**  
+**PCA with 158 principal components**   
+```python
+pca = PCA(n_components=158)
+images_pca = pca.fit_transform(image_raws)
+```
 
-**Split data into train/val/test subsets**
+**Split data into train/val/test subsets**  
+75-15-10 ratio for training-validation-test sets with random_state=101.  
+```python
+def split_data(X, y):
+    train_ratio = 0.75
+    validation_ratio = 0.15
+    test_ratio = 0.10
 
-#### Model 1. RandomForestClassifier()
+    # train is now 75% of the entire data set
+    x_train, x_test, y_train, y_test = train_test_split(X, y, train_size=train_ratio, random_state=101)
+
+    # test is now 10% of the initial data set
+    # validation is now 15% of the initial data set
+    x_val, x_test, y_val, y_test = train_test_split(x_test, y_test, test_size=test_ratio/(test_ratio + validation_ratio), random_state=101) 
+    return (x_train, x_test, x_val, y_train, y_test, y_val)
+```
+
+- On the original dataset  
+```python
+x_train_norm, x_test_norm, x_val_norm, y_train_norm, y_test_norm, y_val_norm = split_data(image_raws, labels)
+```
+Distribution Emotion Label  
+![img_norm_distribute](./materials/img_norm_distribute.png)   
+
+- On the transformed dataset
+```python
+x_train_pca, x_test_pca, x_val_pca, y_train_pca, y_test_pca, y_val_pca = split_data(images_pca, labels)
+```
+Distribution Emotion Label  
+![img_pca_distribute](./materials/img_pca_distribute.png)   
+
+
+#### Model 1. RandomForestClassifier()  
 - On Original dataset  
+![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
+Best parameters found: {'classifier__max_depth': None, 'classifier__n_estimators': 200}  
+Best cross-validation score: 0.42061008994915916  
+- 
 
 ### 4. Evaluating Classification Performance 
