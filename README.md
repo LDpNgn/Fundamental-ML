@@ -157,10 +157,82 @@ Distribution Emotion Label
 
 
 #### Model 1. RandomForestClassifier()  
-- On Original dataset  
+**On Original dataset**  
 ![img_grid_rfc_norm](./materials/img_grid_rfc_norm.png)  
 Best parameters found: {'classifier__max_depth': None, 'classifier__n_estimators': 200}  
-Best cross-validation score: 0.42061008994915916  
-- 
+Best cross-validation score: 0.42061008994915916   
+```
+Validation Accuracy: 0.4192412983965585
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.41      0.12      0.19       706
+           1       1.00      0.04      0.07        56
+           2       0.39      0.21      0.28       721
+           3       0.42      0.79      0.55      1302
+           4       0.35      0.34      0.34       910
+           5       0.59      0.43      0.49       494
+           6       0.42      0.38      0.40       925
+
+    accuracy                           0.42      5114
+   macro avg       0.51      0.33      0.33      5114
+weighted avg       0.43      0.42      0.39      5114
+```
+```
+Test Accuracy: 0.41642228739002934
+Test Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.43      0.12      0.19       485
+           1       0.50      0.02      0.03        57
+           2       0.32      0.18      0.23       482
+           3       0.43      0.80      0.56       854
+           4       0.35      0.37      0.36       594
+           5       0.65      0.44      0.53       351
+           6       0.38      0.36      0.37       587
+
+    accuracy                           0.42      3410
+   macro avg       0.44      0.33      0.33      3410
+weighted avg       0.42      0.42      0.38      3410
+```
+
+- **On transformed dataset**  
+![img_grid_rfc_pca](./materials/img_grid_rfc_pca.png)
+Best parameters found: {'classifier__criterion': 'gini', 'classifier__max_depth': None, 'classifier__n_estimators': 200}  
+Best cross-validation score: 0.3674618693781776
+```
+Validation Accuracy: 0.3597966366836136
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.45      0.08      0.14       706
+           1       1.00      0.02      0.04        56
+           2       0.42      0.16      0.23       721
+           3       0.34      0.84      0.48      1302
+           4       0.33      0.23      0.27       910
+           5       0.66      0.26      0.38       494
+           6       0.38      0.25      0.30       925
+
+    accuracy                           0.36      5114
+   macro avg       0.51      0.26      0.26      5114
+weighted avg       0.41      0.36      0.31      5114
+```
+```
+Test Accuracy: 0.35953079178885633
+Test Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.42      0.07      0.13       485
+           1       0.50      0.02      0.03        57
+           2       0.41      0.14      0.21       482
+           3       0.34      0.86      0.49       854
+           4       0.34      0.24      0.28       594
+           5       0.73      0.27      0.40       351
+           6       0.34      0.25      0.29       587
+
+    accuracy                           0.36      3410
+   macro avg       0.44      0.27      0.26      3410
+weighted avg       0.40      0.36      0.31      3410
+```
 
 ### 4. Evaluating Classification Performance 
