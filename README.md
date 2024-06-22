@@ -40,7 +40,7 @@ This project is designed to be completed in the following steps:
 5. **Commit and Push Your Changes**: Once you've completed the tasks outlined in the notebook, commit your changes to your local repository and push them to your forked repository on GitHub.
 
 
-## Getting Started
+## 👻 GETTING STARTED
 ### 1. Prerequisite  
 
 #### Load dataset  
@@ -83,20 +83,35 @@ After reducing the dimensionality of the data set using PCA with n_components = 
 Determining the optimal number of principal components (PCs) in Principal Component Analysis (PCA) is an important step for effective data dimensionality reduction. Choosing the appropriate number of PCs helps balance between retaining the most important information from the original data and minimizing noise and redundancy.  
 
 A common method for determining the optimal number of PCs is to use a combination of visual and quantitative analysis based on the explained_variance_ variable of PCA. Here are the steps:  
-- Step 1: Fit PCA model  
-- Step 2: Explained variance ratio  
+- Step 1: Fit PCA model
+```python
+pca = PCA()
+pca.fit(norm_images)
+```
+
+- Step 2: Explained variance ratio
+```python
+explained_variance_ratio = pca.explained_variance_ratio_
+cumulative_explained_variance = pca.explained_variance_ratio_.cumsum()
+```
+
 - Step 3: Create a scree plot to visualize the explained variance  
 ![img_screeplot](./materials/img_screeplot.png)
 - Step 4: Determine the "Elbow" Point  
 Based on the Scree Plot chart, the elbow point can be located at about 150-175 PCs, corresponding to 90% information about the variance of the original data. Therefore, choosing 158 PCs may be the optimal number of main components for this case.  
 - Step 5: Threshold Method  
-![img_threshold](./materials/img_threshold.png)  
+```python
+# Optimal number of components based on explained variance threshold (e.g., 90%)
+optimal_components = next(i for i, total_var in enumerate(cumulative_explained_variance) if total_var >= 0.9) + 1
+```
+```
+Optimal number of components: 158
+```
 Another way to find the number of principal components is to use the threshold method. Setting the cumulative variance threshold at 90%, we find the optimal number of principal components to be 158
 
+**Selection Process Explained**  
 Scree Plot and "Elbow" Method: The scree plot shows the explained variance of each principal component. The "elbow" point, where the explained variance curve starts to flatten, indicates diminishing returns for adding more components. This point is chosen as the optimal number of components because it captures most of the variance while avoiding unnecessary complexity.  
-
 Cumulative Variance Threshold: This method sets a threshold for the cumulative explained variance (e.g., 80% or 90%). The optimal number of components is the smallest number that meets or exceeds this threshold, ensuring that a sufficient amount of variance is captured.   
-
 By using both the scree plot and the cumulative variance threshold, can make a well-informed decision on the optimal number of principal components for your analysis.  
 
 
