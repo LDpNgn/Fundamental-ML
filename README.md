@@ -77,7 +77,7 @@ Principal Component Analysis (PCA) is a popular technique for dimensionality red
 #### Question 1: Can you visualize the data projected onto two principal components?  
 Perform PCA on the 2-dimensional matrix image_raws with 35887 rows corresponding to 35887 data images, 2304 columns corresponding to 48x48 pixel values  
 ![img_pca](./materials/img_pca.png)   
-Sau khi giảm số chiều của tập dữ liệu bằng PCA với n_components = 2, ta giữ lại được khoảng 27.66% thông tin (về phương sai) từ tập dữ liệu gốc. Đây có thể được xem là thấp, điều đó gợi ý rằng ta cần một số lượng lớn hơn các thành phần chính để nắm bắt nhiều phương sai hơn hoặc tập dữ liệu có tính đa chiều cao   
+After reducing the dimensionality of the data set using PCA with n_components = 2, we retain about 27.66% of the information (about variance) from the original data set. This could be considered low, suggesting that we need a larger number of principal components to capture more variance or that the data set is highly dimensional.  
 
 #### Question 2: How to determine the optimal number of principal components using ```pca.explained_variance_```? Explain your selection process.  
 Determining the optimal number of principal components (PCs) in Principal Component Analysis (PCA) is an important step for effective data dimensionality reduction. Choosing the appropriate number of PCs helps balance between retaining the most important information from the original data and minimizing noise and redundancy.  
@@ -88,7 +88,7 @@ A common method for determining the optimal number of PCs is to use a combinatio
 - Step 3: Create a scree plot to visualize the explained variance  
 ![img_screeplot](./materials/img_screeplot.png)
 - Step 4: Determine the "Elbow" Point  
-Dựa vào biểu đồ Scree Plot, điểm khuỷu tay có thể nằm ở khoảng 150-175 PCs, tương ứng với 90% thông tin về phương sai của dữ liệu gốc. Do đó, lựa chọn 158 PCs có thể là số lượng thành phần chính tối ưu cho trường hợp này.  
+Based on the Scree Plot chart, the elbow point can be located at about 150-175 PCs, corresponding to 90% information about the variance of the original data. Therefore, choosing 158 PCs may be the optimal number of main components for this case.  
 - Step 5: Threshold Method  
 ![img_threshold](./materials/img_threshold.png)  
 Another way to find the number of principal components is to use the threshold method. Setting the cumulative variance threshold at 90%, we find the optimal number of principal components to be 158
